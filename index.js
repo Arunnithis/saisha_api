@@ -6,6 +6,15 @@ const contactRoute = require("./routes/contacts")
 
 const app = express();
 
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+  });
+
 dotenv.config();
 app.use(express.json());
 
