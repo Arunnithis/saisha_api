@@ -7,7 +7,8 @@ router.post("/",async (req,res)=>{
         const newAppointment = new Contact({
             name : req.body.name,
             email : req.body.email,
-            phone : req.body.phone
+            phone : req.body.phone,
+            date : req.body.date,
         })
         const appointmentList= await newAppointment.save()
         res.status(200).json(appointmentList)

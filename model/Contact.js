@@ -15,6 +15,10 @@ const contactSchema = new mongoose.Schema({
     phone : {
         type : String,
         require : true,
+    },
+    date : {
+        type : String,
+        require : true,
     }
 })
 
