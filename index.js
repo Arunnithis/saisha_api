@@ -3,11 +3,14 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const contactRoute = require("./routes/contacts")
+const cors = require("cors")
 
 const app = express();
+app.use(cors())
+
 
 app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Origin","*");
     res.header(
       "Access-Control-Allow-Headers",
       "Origin, X-Requested-With, Content-Type, Accept"
