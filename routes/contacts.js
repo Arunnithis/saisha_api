@@ -10,13 +10,8 @@ router.post("/",async (req,res)=>{
             phone : req.body.phone,
             date : req.body.date,
         })
-        const found = await Contact.findOne({phone : req.body.phone})
-        if(found){
-            res.status(200).json(`${found.name} has already has booked appointment on ${found.date}`)
-        }else{
-           const savedUser = await newAppointment.save()
-           res.status(200).json(savedUser)
-        }    
+        const savedUser = await newAppointment.save()
+        res.status(200).json(savedUser)    
     }catch(err){
         res.status(500).json(err)
     }
