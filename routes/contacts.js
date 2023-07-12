@@ -58,7 +58,7 @@ router.get('/find/:phone',async (req,res)=>{
 })
 
 //delete Appointment
-router.delete('/find/:phone',async (req,res)=>{
+router.delete('/:phone',async (req,res)=>{
     try{
         const founddUser = await Contact.findOne({phone : req.params.phone})
         const id = founddUser._id
