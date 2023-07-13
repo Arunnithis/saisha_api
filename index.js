@@ -5,6 +5,7 @@ const bcrypt = require("bcrypt");
 const cors = require("cors")
 const contactRoute = require("./routes/contacts")
 const authRoute = require('./routes/auth')
+const studentRoute = require("./routes/student")
 
 const app = express();
 app.use(cors())
@@ -30,6 +31,7 @@ mongoose.connect(process.env.MONGO_URL,{
 
 app.use("/api/contact",contactRoute)
 app.use("/api/auth",authRoute)
+app.use("/api/student",studentRoute)
 
 app.listen(process.env.PORT || 5000,(req,res)=>{
     console.log("Started")
