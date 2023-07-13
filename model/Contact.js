@@ -12,7 +12,7 @@ const contactSchema = new mongoose.Schema({
         require : true
     },
     phone : {
-        type : String,
+        type : Number,
         require : true,
         unique : true
     },
