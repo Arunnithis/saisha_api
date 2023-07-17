@@ -17,6 +17,18 @@ router.post("/",async (req,res)=>{
     }
 })
 
+//Multiple input
+router.post("/multi",async (req,res)=>{
+    try{
+        const array = req.body.array;
+        console.log(array);
+        const savedUser = await Contact.insertMany(array)
+        res.status(200).json("Inserted")    
+    }catch(err){
+        res.status(500).json(err)
+    }
+})
+
 //Gett All Appointments
 router.get("/",async (req,res)=>{
     try{
@@ -46,6 +58,16 @@ router.put('/:phone',async (req,res)=>{
 router.get('/find/:phone',async (req,res)=>{
     try{
         const founddUser = await Contact.findOne({phone : req.params.phone})
+        res.status(200).json(founddUser)
+    }catch(err){
+        res.status(500).json(err)
+    }
+})
+
+//get Filtered Appointment
+router.get('/:date',async (req,res)=>{
+    try{
+        const founddUser = await Contact.find({date : req.params.date})
         res.status(200).json(founddUser)
     }catch(err){
         res.status(500).json(err)
